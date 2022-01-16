@@ -11,6 +11,7 @@ interface TaskForm {
   title: string;
   content: string;
   dueDateTime: string;
+  isComplete: boolean;
   taskList: string;
 }
 

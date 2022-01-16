@@ -37,6 +37,10 @@ export const createTodo = async (task: TaskForm): Promise<TaskResponse> => {
     };
   }
 
+  if (task.isComplete) {
+    body.status = "completed";
+  }
+
   const response = await fetch(`https://graph.microsoft.com/v1.0/me/todo/lists/${task.taskList}/tasks`, {
     headers: {
       Authorization: `Bearer ${preference.token}`,
