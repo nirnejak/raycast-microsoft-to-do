@@ -33,11 +33,11 @@ export default function Command() {
       <Form.TextField id="title" title="Title" placeholder="Task Title" />
       <Form.TextArea id="content" title="Notes" placeholder="Notes" />
       <Form.Separator />
-      {/* <Form.DatePicker id="date" title="Date" /> */}
+      <Form.DatePicker id="dueDateTime" title="Due Date" />
       {/* <Form.Checkbox id="isComplete" title="Is Complete" label="Mark This Task Complete" storeValue /> */}
       <Form.Dropdown id="taskList" title="Task List">
         {taskLists.map((task: TaskList) => (
-          <Form.DropdownItem value={task.id} title={task.displayName} />
+          <Form.DropdownItem key={task.id} value={task.id} title={task.displayName} />
         ))}
       </Form.Dropdown>
     </Form>

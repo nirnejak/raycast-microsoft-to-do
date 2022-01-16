@@ -10,6 +10,7 @@ interface TaskList {
 interface TaskForm {
   title: string;
   content: string;
+  dueDateTime: string;
   taskList: string;
 }
 
