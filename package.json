@@ -1,0 +1,47 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "microsoft-to-do",
+  "title": "Microsoft To do",
+  "description": "",
+  "icon": "command-icon.png",
+  "author": "nirnejak",
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "index",
+      "title": "Create Task",
+      "description": "Create a Task on Microsoft Todo",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "token",
+      "type": "password",
+      "required": true,
+      "title": "Microsoft Graph API Token",
+      "description": "Microsoft Graph API Token",
+      "link": "https://developer.microsoft.com/en-us/graph/",
+      "placeholder": "Microsoft Graph API Token"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.27.0",
+    "node-fetch": "^3.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "~16.10.0",
+    "@types/react": "^17.0.28",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "typescript": "^4.4.3"
+  },
+  "scripts": {
+    "build-old": "ray build -e dist",
+    "build": "ray build -o dist",
+    "dev": "ray develop",
+    "lint": "ray lint"
+  }
+}
