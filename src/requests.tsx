@@ -28,6 +28,7 @@ export const createTodo = async (task: TaskForm): Promise<TaskResponse> => {
       content: task.content,
       contentType: "text",
     },
+    importance: task.importance,
   };
 
   if (task.dueDateTime) {

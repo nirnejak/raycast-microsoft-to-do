@@ -12,6 +12,7 @@ interface TaskForm {
   content: string;
   dueDateTime: string;
   isComplete: boolean;
+  importance: string;
   taskList: string;
 }
 

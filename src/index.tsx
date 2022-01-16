@@ -43,6 +43,11 @@ export default function Command() {
       </Form.Dropdown>
       <Form.Separator />
       <Form.DatePicker id="dueDateTime" title="Due Date" />
+      <Form.Dropdown id="importance" title="Importance" defaultValue="normal">
+        <Form.DropdownItem value={"low"} title={"Low"} />
+        <Form.DropdownItem value={"normal"} title={"Normal"} />
+        <Form.DropdownItem value={"high"} title={"High"} />
+      </Form.Dropdown>
       <Form.Checkbox id="isComplete" title="Complete" label="Mark this task complete" />
     </Form>
   );
