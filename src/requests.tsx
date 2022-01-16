@@ -9,7 +9,11 @@ export const fetchTaskLists = async (): Promise<TaskList[]> => {
     },
   });
   const data: any = await response.json();
-  return data.value.filter((taskList: TaskList) => taskList.displayName !== "Flagged Emails");
+  if (data.value) {
+    return data.value.filter((taskList: TaskList) => taskList.displayName !== "Flagged Emails");
+  } else {
+    return [];
+  }
 };
 
 export const createTodo = async (task: TaskForm): Promise<TaskResponse> => {
