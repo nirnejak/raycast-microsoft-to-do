@@ -21,22 +21,28 @@ export const fetchTaskLists = async (): Promise<TaskList[]> => {
 
 export const createTodo = async (task: TaskForm): Promise<TaskResponse> => {
   const preference = await getPreferenceValues();
+
+  const body: any = {
+    title: task.title,
+    body: {
+      content: task.content,
+      contentType: "text",
+    },
+  };
+
+  if (task.dueDateTime) {
+    body.dueDateTime = {
+      dateTime: task.dueDateTime,
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    };
+  }
+
   const response = await fetch(`https://graph.microsoft.com/v1.0/me/todo/lists/${task.taskList}/tasks`, {
     headers: {
       Authorization: `Bearer ${preference.token}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      title: task.title,
-      dueDateTime: {
-        dateTime: task.dueDateTime,
-        // timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      },
-      body: {
-        content: task.content,
-        contentType: "text",
-      },
-    }),
+    body: JSON.stringify(body),
     method: "POST",
   });
   const data: any = await response.json();

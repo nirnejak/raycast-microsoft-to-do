@@ -1,4 +1,4 @@
-import { Form, ActionPanel, SubmitFormAction, showToast, ToastStyle } from "@raycast/api";
+import { Form, ActionPanel, SubmitFormAction, showToast, ToastStyle, closeMainWindow } from "@raycast/api";
 import React from "react";
 
 import { fetchTaskLists, createTodo } from "./requests";
@@ -18,7 +18,10 @@ export default function Command() {
     const data = await createTodo(values);
 
     if (data.id) {
-      showToast(ToastStyle.Success, "Task Created", "Task is successfully created");
+      showToast(ToastStyle.Success, "Task Created", "Closing window...");
+      setTimeout(async () => {
+        await closeMainWindow();
+      }, 2000);
     }
   }
 
